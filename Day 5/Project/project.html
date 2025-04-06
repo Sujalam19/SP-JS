@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById('clock').textContent = currentTime;
+        }
+
+        // Apply styles in script tag
+        const bodyStyle = document.body.style;
+        bodyStyle.fontFamily = "Arial, sans-serif";
+        bodyStyle.textAlign = "center";
+        bodyStyle.marginTop = "50px";
+
+        const clockStyle = document.getElementById('clock').style;
+        clockStyle.fontSize = "48px";
+        clockStyle.color = "#333";
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize the clock immediately
+    </script>
+</body>
+</html>
